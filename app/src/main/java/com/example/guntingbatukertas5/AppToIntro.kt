@@ -41,6 +41,8 @@ class AppToIntro : AppIntro() {
 //        onNextSlide()
 //    }
 
+    //coba di bikin activityny buat holder editext usernamenya
+
     override fun onDonePressed(currentFragment: Fragment?) {
         super.onDonePressed(currentFragment)
         toMainActivty()
