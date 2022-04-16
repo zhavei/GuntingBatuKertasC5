@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VsComActivity">
+    tools:context=".VsPlayerActivity">
 
     <ImageView
         android:id="@+id/imageView_vs_palyer"
@@ -66,7 +66,7 @@
         app:layout_constraintGuide_percent="0.44" />
 
     <TextView
-        android:id="@+id/tv_result_center"
+        android:id="@+id/tv_result_center_vs_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/purple_500"
@@ -80,12 +80,24 @@
         app:layout_constraintStart_toEndOf="@+id/include" />
 
     <ImageView
-        android:id="@+id/ivreset"
+        android:id="@+id/ivreset_vs_player"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/ic_refresh"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+        app:layout_constraintStart_toEndOf="@+id/iv_mulai_playervsplayer" />
+
+    <ImageView
+        android:id="@+id/iv_mulai_playervsplayer"
+        android:layout_width="108dp"
+        android:layout_height="108dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_splash_screen2"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

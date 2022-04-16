@@ -1,10 +1,9 @@
 package com.example.guntingbatukertas5
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.guntingbatukertas5.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -31,19 +30,14 @@ class MainActivity : AppCompatActivity() {
         binding.tvNamePlayerVsPlyaer.text = name + " vs Pemain"
         binding.tvNamePlayerVsCpu.text = name + " vs CPU"
 
-        binding.imageViewCpu.setOnClickListener {
-            val intent = Intent(this, VsComActivity::class.java)
-            bundle?.let { intent.putExtras(it) }
-            startActivity(intent)
-        }
-
-    }
-
-    private fun vsComSelect() {
         binding.apply {
             binding.imageViewCpu.setOnClickListener {
-                val intent = Intent(this@MainActivity, VsComActivity::class.java)
-                val bundle = intent.extras
+                val intent = Intent(applicationContext, VsComActivity::class.java)
+                bundle?.let { intent.putExtras(it) }
+                startActivity(intent)
+            }
+            binding.imageViewVsPalyer.setOnClickListener {
+                val intent = Intent(applicationContext, VsPlayerActivity::class.java)
                 bundle?.let { intent.putExtras(it) }
                 startActivity(intent)
             }

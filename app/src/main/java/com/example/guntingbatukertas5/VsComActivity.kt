@@ -3,12 +3,11 @@ package com.example.guntingbatukertas5
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.guntingbatukertas5.databinding.ActivityVsComBinding
-import com.example.guntingbatukertas5.fragment.DialogFragment
+import com.example.guntingbatukertas5.fragment.DialogFragmentCostum
 import com.example.guntingbatukertas5.vscomselection.Selection
 import kotlin.random.Random
 
@@ -27,10 +26,14 @@ class VsComActivity : AppCompatActivity() {
         binding = ActivityVsComBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val bundle = intent.extras
+        val name = bundle?.getString(AppToIntro.USER_NAME)
+        supportActionBar?.title = "$name Vs Computer"
+
         letsPlay()
         reset()
 
-        val costumDialogFragment = DialogFragment()
+        val costumDialogFragment = DialogFragmentCostum()
         costumDialogFragment.isCancelable = false
 
 
@@ -87,7 +90,7 @@ class VsComActivity : AppCompatActivity() {
 
     private fun dialogCostum() {
         //dialog costum
-        val costumDialogFragment = DialogFragment()
+        val costumDialogFragment = DialogFragmentCostum()
         costumDialogFragment.show(supportFragmentManager, null)
     }
 
@@ -231,6 +234,10 @@ class VsComActivity : AppCompatActivity() {
         val bundle = intent.extras
         val nameGetIntent = bundle?.getString(AppToIntro.USER_NAME)
         Toast.makeText(this, "$nameGetIntent memilih $chosen ", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onBackPressed() {
+        finish()
     }
 
 

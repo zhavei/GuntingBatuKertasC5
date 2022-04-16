@@ -1,4 +1,4 @@
-package com.example.guntingbatukertas5.fragment
+package com.example.guntingbatukertas5
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
-import com.example.guntingbatukertas5.AppToIntro
-import com.example.guntingbatukertas5.MainActivity
 import com.example.guntingbatukertas5.databinding.DialogCostumDialogBinding
 
-class DialogFragment : DialogFragment() {
+//g tau ni kepake apa engga
+class DialogFragmentTwo : DialogFragment() {
 
     private var binding : DialogCostumDialogBinding? = null
 
@@ -27,19 +25,22 @@ class DialogFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val costumDialogVsPlayer = DialogFragmentTwo()
+        costumDialogVsPlayer.isCancelable = false
 
         binding?.apply {
-
             mainLagi.setOnClickListener {
                 dismiss()
             }
+
             kembaliKeMenu.setOnClickListener {
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(intent)
+                activity?.fragmentManager?.popBackStack()
             }
 
-            tvResultWhosPlayerWin.text = "Hebat"
+            tvResultWhosPlayerWin.text = "kamu hebat"
         }
-    }
 
+    }
 }

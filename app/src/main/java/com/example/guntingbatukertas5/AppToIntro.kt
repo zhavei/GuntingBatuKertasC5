@@ -24,26 +24,33 @@ class AppToIntro : AppIntro() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setBackgroundDrawable(ColorDrawable(Color.DKGRAY))
+        //window.setBackgroundDrawable(ColorDrawable(Color.DKGRAY))
         supportActionBar?.hide()
         //layout was handle by library
         addSlide(
             AppIntroFragment.createInstance(
                 imageDrawable = R.drawable.ic_landing_page1,
-                description = "Bermain Suit Melawan Sesama Pemain"
+                description = "Bermain Suit Melawan Sesama Pemain",
+                titleColorRes = R.color.black,
+                descriptionColorRes = R.color.black
             )
         )
         addSlide(
             AppIntroFragment.createInstance(
                 imageDrawable = R.drawable.ic_landing_page2,
-                description = "Bermain Suit Melawan Komputer"
+                description = "Bermain Suit Melawan Komputer",
+                titleColorRes = R.color.black,
+                descriptionColorRes = R.color.black
             )
         )
 
         addSlide(userInputFragment)
-
-        //showStatusBar(true)
+        showStatusBar(true)
         setProgressIndicator()
+        setColorDoneText(R.color.black)
+        setColorSkipButton(R.color.black)
+
+
 
     }
 
@@ -64,6 +71,8 @@ class AppToIntro : AppIntro() {
     private fun ifUserSkiped() {
         val fragmentUserInput = UserInputFragment()
         //fragmentManager.beginTransaction().replace(R.id.user_input_fragment, )
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     private fun toMainActivty() {
