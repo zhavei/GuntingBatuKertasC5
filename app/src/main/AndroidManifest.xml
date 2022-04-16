@@ -27,5 +27,6 @@
         <activity android:name=".AppToIntro" />
         <activity android:name=".MainActivity" />
     </application>
+<uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
